@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.edu.Person" table="person10">
+    
+    <id name="personId" column="pid">
+    <generator class="assigned"></generator>
+    </id>
+    <property name="personFirsrtName" column="pfirstname"></property>
+    <property name="personLastName" column="pLastName"></property>
+     
+     <joined-subclass name="com.edu.Teacher" table="teacher2017">  
+     <key column="personid"></key> 
+    <property name="department" column="department"></property>
+    <property name="subject" column="subject"></property>
+    </joined-subclass>
+     
+    <joined-subclass name="com.edu.Student" table="Student2017">  
+     <key column="personid"></key>
+    <property name="studentClass" column="class"></property>
+    <property name="branch" column="branch"></property>
+   </joined-subclass>
+      
+    </class>
+    </hibernate-mapping>
